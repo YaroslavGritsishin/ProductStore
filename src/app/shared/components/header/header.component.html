@@ -1,0 +1,28 @@
+<header>
+    <nav class="navigation">
+        <div class="navigation__logo" routerLink ="/">
+            <img src="../../../../assets/Logo.png" alt="Logo">
+            <span>Product Store</span>
+        </div>
+        
+        
+        <ul class="navigation__tabs">
+            <li class="navigation__tabs-item"><a routerLink="/">На Главную</a></li>
+            <li class="navigation__tabs-item"><a routerLink="/categories">Категории</a></li>
+            <li class="navigation__tabs-item"><a routerLink="/contacts">Контакты</a></li>
+            <li class="navigation__tabs-item"><a routerLink="/about">О Нас</a></li>
+        </ul> 
+        <div class="user__data" *ngIf ="IsAutenticate; else Login">
+            <mat-icon class="icon" matBadge="5" matBadgeColor="warn" *ngIf ="!isAdmin; else adminIcon" ><a>local_grocery_store</a></mat-icon>
+            <mat-icon class="icon" ><a routerLink="/" (click)="Logout()">logout</a></mat-icon>
+        </div>
+    
+        <ng-template #Login>
+            <mat-icon class="icon"><a routerLink="/login">login</a></mat-icon>
+        </ng-template>
+        <ng-template #adminIcon>
+            <mat-icon class="icon"><a routerLink="/admin">manage_accounts</a></mat-icon>
+        </ng-template>
+        
+    </nav> 
+</header>

@@ -1,0 +1,9 @@
+.content{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  app-category-card{
+    margin: 0 10px 20px 10px;
+  }
+}

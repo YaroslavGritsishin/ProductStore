@@ -1,0 +1,48 @@
+.card {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  .avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%; /* Радиус скругления */
+    border: 3px solid #1a73a8; /* Параметры рамки */
+    box-shadow: 0 0 7px #666; /* Параметры тени */
+    content: url("../../../../../assets/adm.jpg");
+    object-fit: cover;
+    
+  }
+
+  .card-data__name {
+        margin-top: 15px;
+        margin-bottom: 5px;
+        font-family: Roboto sans-serif;
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: .8px;
+    }
+    .card-data__role{
+        font-family: Roboto sans-serif;
+        font-size: 13px;
+        margin-bottom: 20px;
+          
+    }
+    .card-data__btn{
+        border: 1px solid #ccc;
+        background-color: white;
+        cursor: pointer;
+        width: 90px;
+        height: 30px;
+        color: #1a73a8;
+        
+        &:hover{
+            border: 1px solid #1a73a8;
+        }
+
+    }
+    
+  
+}

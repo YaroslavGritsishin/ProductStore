@@ -1,0 +1,28 @@
+<header class="header">
+        <ul class="navigation__menu">
+            <li 
+                routerLinkActive ="active"
+                class="navigation-menu__item"
+                [routerLink] ="['/admin','customer']"
+            >
+                <mat-icon>groups</mat-icon>
+                <span>Покупатели</span>    
+            </li>
+            <li 
+                routerLinkActive ="active"
+                class="navigation-menu__item"
+                [routerLink] ="['/admin','order']"
+            >
+                <mat-icon>list_alt</mat-icon>
+               <span>Заказы</span> 
+            </li>
+            <li 
+                routerLinkActive ="active"
+                class="navigation-menu__item"
+                [routerLink] ="['/admin','product']"
+            >
+                <mat-icon>bakery_dining</mat-icon>
+               <span>Товары</span> 
+            </li>
+        </ul>
+</header>

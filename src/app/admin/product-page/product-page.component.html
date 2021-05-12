@@ -1,0 +1,65 @@
+<div class="product__table">
+    <div class="overlay" *ngIf="isAdd">
+        <div class="modal">
+            <form [formGroup]="addForm" (ngSubmit)="addProduct()">
+                <div class="form__group">
+                    <select class="select" 
+                    [ngStyle]="{color: optionSelected ? 'black': '#9e9e9e' }" 
+                    formControlName="productCategory" name="productCategory"> 
+                        <option>Выберите категорию</option>
+                        <option>Молочная продукция</option>
+                        <option>Хлебная продукция</option>
+                        <option>Фрукты</option>
+                        <option>Овощи</option>
+                        <option>Макаронные изделия</option>
+                        <option>Бытовая химия</option>
+                      </select>
+                </div>
+                <div class="form__group">
+                    <input id="productName" class="form__input" placeholder=" " type="text" formControlName="productName">
+                    <label for="productName" class="form__label">Название товара</label>
+                </div>
+                <div class="form__group">
+                    <input id="productPrice" class="form__input" placeholder=" " type="number" formControlName="productPrice">
+                    <label for="productPrice" class="form__label">Цена</label>
+                </div>
+                <div class="form__group">
+                    <div class="field__wrapper">
+                        <input id="field__file-2" class="field field__file" type="file" accept="image/png, image/jpeg" name="file" (change)="uploadImg($event.target.files)" >
+                        <label class="field__file-wrapper" for="field__file-2">
+                          <div class="field__file-fake">Выберите изображение</div>
+                          <div class="field__file-button">Выбрать</div>
+                        </label>  
+                     </div>
+                </div>
+                <div class="control-btn">
+                    <button class="update" type="submit" [disabled]="addForm.invalid"  >Добавить</button>
+                    <button class="close" (click)="close($event)" >Отмена</button>
+                </div>
+            </form>
+        </div>
+      </div>
+    <!-- <app-customer-modal-edit *ngIf="IsEdit" [customer]="currentProduct" ></app-customer-modal-edit> -->
+<table #productTableRef>
+    <tr class="product-table__row">
+        <th class="product-table__header">Id</th>
+        <th class="product-table__header">Категория</th>
+        <th class="product-table__header">Название</th>
+        <th class="product-table__header">Цена</th>
+        <th class="product-table__header">Управление</th>
+    </tr>
+    <tr  class="product-table__row" *ngFor="let product of products">
+        <td class="product-table__value">{{product.id}}</td>
+        <td class="product-table__value">{{product.category}}</td>
+        <td class="product-table__value">{{product.name}}</td>
+        <td class="product-table__value">{{product.price}}</td>
+        <td class="product-table__control">
+            <div>
+                <mat-icon class="icon iconAdd">add</mat-icon>
+                <mat-icon class="icon iconEdit" >edit</mat-icon>
+                <mat-icon class="icon iconDelete">delete</mat-icon>
+            </div>
+        </td>
+    </tr>
+</table>
+</div>

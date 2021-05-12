@@ -1,0 +1,32 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 280px;
+  width: 280px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+  .card__img {
+    display: block;
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+    margin: 0 auto;
+  }
+
+  span {
+    padding-bottom: 10px;
+    margin: 0;
+    
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #1a73a8;
+    letter-spacing: 1px;
+  }
+  transition: transform 0.3s;
+}
+.card:hover {
+  cursor: pointer;
+  transform: scale(0.90);
+}

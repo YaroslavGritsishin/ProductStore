@@ -1,0 +1,9 @@
+<div *ngIf="customerId; else Loading">
+    <p>{{customerId}}</p>
+</div>
+<ng-template #Loading>
+    <div>
+        <p>Идет загрузка...</p>
+    </div>
+</ng-template>
+

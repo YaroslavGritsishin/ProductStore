@@ -1,0 +1,12 @@
+
+<app-customer-table 
+*ngIf="data; else loading"
+[customerData]="data"
+(onDelete)="_delete($event)" 
+(onUpdate)="_update($event)" 
+></app-customer-table>
+<ng-template #loading>
+    <p>
+        Идет загрузка...
+    </p>
+</ng-template>

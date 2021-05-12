@@ -1,0 +1,22 @@
+
+  <div class="overlay">
+    <div class="modal">
+        <mat-form-field class="form-field name">
+          <mat-label>Имя</mat-label>
+          <input matInput type="text" [value]="customer.name" #name>
+        </mat-form-field>
+        <mat-form-field class="form-field address">
+          <mat-label>Адрес достваки</mat-label>
+          <input matInput type="text" [value]="customer.address" #address>
+        </mat-form-field>
+        <mat-form-field class="form-field discount">
+          <mat-label>Персонаяльная скидка в %</mat-label>
+          <input class="discount" min="0" max="70" matInput type="number"[value]="customer.discount" #discount>
+        </mat-form-field>
+        <div class="control-btn">
+          <button class="Update" type="submit" (click)="Update(name.value,address.value,discount.value)">Изменить</button>
+          <button class="Close" (click)="close()">Отмена</button>
+      </div>
+    </div>
+  </div>
+  

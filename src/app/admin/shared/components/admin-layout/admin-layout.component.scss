@@ -1,0 +1,26 @@
+.container {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0px 15px 0px 15px;
+  height: 100vh;
+
+  .content {
+    padding-top: 35px;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    height: 85vh;
+    overflow: auto;
+
+  }
+  .wrapper{
+    display: flex;
+    .main__panel{
+      width: 100%;
+    }
+  }
+
+  .card{
+    padding-top: 30px;
+  }
+}

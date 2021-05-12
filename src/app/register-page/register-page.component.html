@@ -1,0 +1,61 @@
+<div class="content">
+    <form class="registerForm" [formGroup]="form" (ngSubmit)="register()">
+        <div class="regForm__logo">
+            <a routerLink="/">
+              <img src="../../assets/Logo.png" alt="Logo">
+            </a>
+            <h3 class="form__title">Product Store</h3>
+          </div>
+        <div class="form__group"
+        [ngClass]="{invalid: form.get('email').touched && form.get('email').invalid}"
+        >
+            <input id="email" class="form__input" type="email" placeholder=" " formControlName="email" />
+            <label for="email" class="form__label">Email</label>
+            <div class="validation" *ngIf="form.get('email').touched && form.get('email').invalid">
+                <small *ngIf="form.get('email').errors.required">
+                     Заполните поле email
+                </small>
+                <small *ngIf="form.get('email').errors.email">
+                Введите корректный email: example@mail.com
+             </small>
+            </div>
+        </div>
+        <div class="form__group"
+        [ngClass]="{invalid: form.get('password').touched && form.get('password').invalid}"
+        >
+            <input id="password" class="form__input" type="password" placeholder=" " formControlName="password" />
+            <label for="password" class="form__label">Пароль</label>
+            <div class="validation" *ngIf="form.get('password').touched && form.get('password').invalid">
+                <small *ngIf="form.get('password').errors.required">
+                     Заполните поле пароль
+                </small>
+                <small *ngIf="form.get('password').errors.minlength">
+                    Пароль должен быть не менее {{form.get('password').errors.minlength.requiredLength}} символов
+             </small>
+            </div>
+        </div>
+        <div class="form__group"
+        [ngClass]="{invalid: form.get('name').touched && form.get('name').invalid}"
+        >
+            <input id="name" class="form__input" type="text" placeholder=" " formControlName="name" />
+            <label for="name" class="form__label">Имя</label>
+            <div class="validation" *ngIf="form.get('name').touched && form.get('name').invalid">
+                <small *ngIf="form.get('email').errors.required">
+                     Заполните поле имя
+                </small>
+            </div>
+        </div>
+        <div class="form__group"
+        [ngClass]="{invalid: form.get('address').touched && form.get('address').invalid}"
+        >
+            <input id="address" class="form__input" type="text" placeholder=" " formControlName="address" />
+            <label for="address" class="form__label">Адресс доставки</label>
+            <div class="validation" *ngIf="form.get('address').touched && form.get('address').invalid">
+                <small *ngIf="form.get('address').errors.required">
+                     Заполните поле адресс доставки
+                </small>
+            </div>
+        </div>
+        <button class="form__button" type="submit" [disabled]="form.invalid">Зарегистрироваться</button>
+    </form>
+</div>

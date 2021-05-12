@@ -1,0 +1,30 @@
+<div class="customer__table">
+        <app-customer-modal-edit *ngIf="IsEdit" (onClose)="Close($event)" [customer]="currentCustomer" (onUpdate)="next($event)"></app-customer-modal-edit>
+    <table #tableRef>
+        <tr class="customer-table__row">
+            <th class="customer-table__header">Id</th>
+            <th class="customer-table__header">Имя</th>
+            <th class="customer-table__header">Адрес доствки</th>
+            <th class="customer-table__header">Скидка</th>
+            <th class="customer-table__header">Заказы</th>
+            <th class="customer-table__header">Управление</th>
+        </tr>
+        <tr  class="customer-table__row" *ngFor ="let data of customerData" #tableRow>
+            <td class="customer-table__value">{{data.id}}</td>
+            <td class="customer-table__value">{{data.name}}</td>
+            <td class="customer-table__value">{{data.address}}</td>
+            <td class="customer-table__value">{{data.discount}}%</td>
+            <td class="customer-table__value">
+                <div customer-table__control>
+                    <mat-icon class="icon iconList" (click) ="redirectToOrdersList()">list_alt</mat-icon>
+                </div>
+            </td>
+            <td class="customer-table__control">
+                <div>
+                    <mat-icon class="icon iconEdit" (click)="IsEdit = true">edit</mat-icon>
+                    <mat-icon class="icon iconDelete">delete</mat-icon>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
