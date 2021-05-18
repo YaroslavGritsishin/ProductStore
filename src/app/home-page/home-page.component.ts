@@ -12,6 +12,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
 
   products : Product[];
   productsStream$: Subscription;
+  productCategory$: Subscription;
   constructor(
     private productService: ProductService
   ) { }
@@ -19,12 +20,25 @@ export class HomePageComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.productsStream$ = this.productService.getAllProducts()
-    .subscribe(resp => this.products = resp);
+    .subscribe(resp => {
+      if(resp){
+        if(this.productService.selectedCategory){
+          this.products = resp.filter(p => p.category === this.productService.selectedCategory.toLocaleLowerCase())
+          this.productService.selectedCategory = null;
+        }else{
+          this.products = resp;
+        }
+      }
+    });
+    
   }
 
   ngOnDestroy(): void {
     if(this.productsStream$){
       this.productsStream$.unsubscribe();
+    }
+    if(this.productCategory$){
+      this.productCategory$.unsubscribe();
     }
   }
 

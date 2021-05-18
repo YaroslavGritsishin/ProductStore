@@ -2,7 +2,7 @@
 <div class="content">
         <app-category-card *ngFor="let card of categoryCards"
         [categoryCard] = "card"
-
+        (click)="getCurrentCard(card)"
     ></app-category-card>
 </div>
 

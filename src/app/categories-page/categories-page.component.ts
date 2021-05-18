@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { CategoryCard } from '../Models/interfaces';
+import { Component, OnInit} from '@angular/core';
+import { Router } from '@angular/router';
+import { Card, CategoryCard } from '../Models/interfaces';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-categories-page',
@@ -8,7 +10,11 @@ import { CategoryCard } from '../Models/interfaces';
 })
 export class CategoriesPageComponent implements OnInit {
 
-  constructor() { }
+  
+  constructor(
+    private prodService: ProductService,
+    private router: Router 
+  ) { }
   categoryCards: CategoryCard[];
   ngOnInit(): void {
     this.categoryCards =[
@@ -18,9 +24,11 @@ export class CategoriesPageComponent implements OnInit {
       {title: 'Молочная Продукция', src: '../assets/ML.png'},
       {title: 'Макаронные Изделия', src: '../assets/MK.png'},
       {title: 'Бытовая Химия', src: '../assets/BX.png'}
-     
     ] 
   }
   
-  
+  getCurrentCard(card : Card){
+    this.prodService.selectedCategory = card.title;
+    this.router.navigate(['/']);
+  }
 }

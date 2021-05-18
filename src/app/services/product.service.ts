@@ -2,7 +2,7 @@ import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AUTH_API_URL } from '../Models/app-injection-token';
 import { Product }  from '../Models/interfaces';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 
 @Injectable({
@@ -10,10 +10,12 @@ import { Observable } from 'rxjs';
 })
 export class ProductService {
 
+  selectedCategory: string;
   constructor(
     private http: HttpClient,
     @Inject(AUTH_API_URL) private authUrl: string
   ) { }
+
 
   getAllProducts(): Observable<Product[]>{
     return this.http.get<Product[]>(`${this.authUrl}product/getallproducts`);
